@@ -4,11 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringBufferInputStream;
-
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 
 public class EmailTest {
@@ -47,6 +43,7 @@ public class EmailTest {
 		try {
 			Email fromMismatch = new Email(mismatchStream);
 			fail("IllegalArgumentException not made when expected");
+			fromMismatch.getTo(); //Unreachable; made to suppress "variable fromMismatch not being used" warning
 		} catch (IllegalArgumentException e) {
 			
 		}
